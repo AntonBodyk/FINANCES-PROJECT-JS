@@ -1,0 +1,148 @@
+.show{
+    display: block;
+}
+
+.hide{
+    display: none;
+}
+
+
+h1{
+   text-align: center; 
+   color: blueviolet;
+}
+
+.user-balans h2{
+    text-align: center;
+    color: blueviolet;
+}
+
+.add-deposit-block{
+    margin-left: 30%;
+}
+
+.add-deposit-block h2{
+    color: blueviolet;
+}
+
+.replenishment-form{
+    margin-left: 40px;
+}
+.replenishment-amount{
+    font-size: 15px;
+    color: greenyellow;
+}
+
+.amount{
+    font-style: italic;
+    display:block;
+    width:280px;
+    height:50px;
+    background:#fff;
+    box-shadow:0 4px 15px rgba(0,0,0,.2);
+    border:none;
+    font-size:18px;
+    text-align:center;
+    padding:0 20px;
+    outline:0;
+    margin-left: 90px;
+}
+
+.replenishment-button{
+    width: 130px;
+    height: 36px;
+    border-radius: 10px;
+    background-color:  blue;
+    color: aliceblue;
+    margin-top: 20px;
+    margin-left: 180px;
+    border: none;
+    cursor: pointer;
+}
+.add-expenses h2{
+    text-align: center;
+    color: blueviolet;
+    margin-top: 30px;
+}
+.add-expenses-button{
+    margin-left: 45%;
+    width: 130px;
+    height: 36px;
+    border-radius: 10px;
+    background-color:  blue;
+    color: aliceblue;
+    border: none;
+    cursor: pointer;
+}
+
+.modal{
+    position:fixed;
+    top:0;
+    left:0;
+    z-index:1050;
+    display:none;
+    width:100%;
+    height:100%;
+    overflow:hidden;
+    background-color:rgba(0,0,0,.5);
+}
+.modal__dialog{
+    max-width:500px;
+    margin:40px auto;
+}
+.modal__content{
+    position:relative;
+    width:100%;
+    padding:40px;
+    background-color:#fff;
+    border:1px solid rgba(0,0,0,.2);
+    border-radius:4px;
+    max-height:80vh;
+    overflow-y:auto;
+}
+.modal__close{
+    position:absolute;
+    top:8px;
+    right:14px;
+    font-size:30px;
+    color:#000;
+    opacity:.5;
+    font-weight:700;
+    border:none;
+    background-color:transparent;
+    cursor:pointer;
+}
+
+.modal__title{
+    text-align:center;
+    font-size:22px;
+    text-transform:uppercase;
+}
+
+.modal__input{
+    font-style: italic;
+    display:block;
+    margin:20px auto 20px auto;
+    width:280px;
+    height:50px;
+    background:#fff;
+    box-shadow:0 4px 15px rgba(0,0,0,.2);
+    border:none;
+    font-size:18px;
+    text-align:center;
+    padding:0 20px;
+    outline:0;
+}
+
+.modal .btn{
+    font-style: italic;
+    display:block;
+    width:280px;
+    height: 50px;
+    border: none;
+    border-radius: 10px;
+    margin:0 auto;
+    cursor: pointer;
+    background-color: black;
+    color: #fff;
+}
