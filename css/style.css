@@ -1,13 +1,8 @@
 
-
-/* .hide{
-    display: none;
-} */
-
-
 h1{
    text-align: center; 
-   color: blueviolet;
+   /* color: blueviolet; */
+   color: #20c997;
 }
 
 .user-balans h2{
@@ -20,15 +15,12 @@ h1{
 }
 
 .add-deposit-block h2{
+    margin-left: -100px;
     color: blueviolet;
 }
 
 .replenishment-form{
     margin-left: 40px;
-}
-.replenishment-amount{
-    font-size: 15px;
-    color: greenyellow;
 }
 
 .amount{
@@ -43,34 +35,63 @@ h1{
     text-align:center;
     padding:0 20px;
     outline:0;
-    margin-left: 90px;
+    margin: 30px 0 0 120px;
 }
 
 .replenishment-button{
     width: 130px;
-    height: 36px;
+    height: 45px;
     border-radius: 10px;
-    background-color:  blue;
     color: aliceblue;
-    margin-top: 20px;
-    margin-left: 180px;
+    margin-left: 195px;
     border: none;
     cursor: pointer;
+    box-shadow:0 4px 15px rgba(0,0,0,.2);
 }
+.add-category h2{
+    text-align: center;
+    color: blueviolet;
+}
+.category-input{
+    font-style: italic;
+    display:block;
+    margin:20px auto 20px auto;
+    width:280px;
+    height:50px;
+    background:#fff;
+    box-shadow:0 4px 15px rgba(0,0,0,.2);
+    border:none;
+    font-size:18px;
+    text-align:center;
+    padding:0 20px;
+    outline:0;
+}
+
+.category-button{
+    margin-left: 46%;
+    width: 130px;
+    height: 45px;
+    border-radius: 10px;
+    color: aliceblue;
+    border: none;
+    cursor: pointer;
+    box-shadow:0 4px 15px rgba(0,0,0,.2);
+}
+
 .add-expenses h2{
     text-align: center;
     color: blueviolet;
     margin-top: 30px;
 }
 .add-expenses-button{
-    margin-left: 45%;
+    margin-left: 46%;
     width: 130px;
-    height: 36px;
+    height: 45px;
     border-radius: 10px;
-    background-color:  blue;
     color: aliceblue;
     border: none;
     cursor: pointer;
+    box-shadow:0 4px 15px rgba(0,0,0,.2);
 }
 
 .modal{
@@ -122,7 +143,7 @@ h1{
     text-transform:uppercase;
 }
 
-.modal__input{
+.modal__input__comment{
     font-style: italic;
     display:block;
     margin:20px auto 20px auto;
@@ -137,7 +158,22 @@ h1{
     outline:0;
 }
 
-.modal .btn{
+.modal__input__expenses{
+    font-style: italic;
+    display:block;
+    margin:20px auto 20px auto;
+    width:280px;
+    height:50px;
+    background:#fff;
+    box-shadow:0 4px 15px rgba(0,0,0,.2);
+    border:none;
+    font-size:18px;
+    text-align:center;
+    padding:0 20px;
+    outline:0;
+}
+
+.modal .btn-sum-expenses{
     font-style: italic;
     display:block;
     width:280px;
@@ -148,4 +184,5 @@ h1{
     cursor: pointer;
     background-color: black;
     color: #fff;
+    box-shadow:0 4px 15px rgba(0,0,0,.2);
 }
