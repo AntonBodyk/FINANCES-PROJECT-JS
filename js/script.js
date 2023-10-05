@@ -30,18 +30,48 @@ function userBalance(){
 
 const categoryInput = document.getElementById('category-input');
 const categoryButton = document.querySelector('.category-button');
+const dropMenu = document.querySelector('.dropdown-menu');
+const dropButton = document.querySelector('.btn-danger');
+const categoryArray = JSON.parse(localStorage.getItem('categoryArray')) || [];
+
 
 function addCategoryExpenses(){
     categoryButton.addEventListener('click', () => {
         console.log(categoryInput.value);
-        let list = document.querySelector('.category-list');
-        let listItem = document.createElement('li');
-        listItem.textContent = categoryInput.value;
-
-        list.appendChild(listItem);
+        
+        if(isNaN(categoryInput.value)){
+            categoryArray.push(categoryInput.value);
+            localStorage.setItem('categoryArray', JSON.stringify(categoryArray));
+            
+            console.log(categoryArray);
+            categoryInput.value = '';
+        }else if(categoryInput.value === ''){
+            alert('Введите данные');
+        }else{
+            alert('Не правильные данные');
+            categoryInput.value = '';
+        }
+        
     })
-    
+}
 
+function addCategory(){
+    const newCategoryArray = JSON.parse(localStorage.getItem('categoryArray'));
+    console.log(typeof(newCategoryArray))
+    dropButton.addEventListener('click', () => {
+
+        const dropListItem = document.createElement('li');
+        dropListItem.classList.add('dropdown-item');
+
+        // for (let i = 0; i < newCategoryArray.length; i++) {
+        //     dropListItem.textContent = newCategoryArray[i];
+        //     console.log(newCategoryArray[i]);
+        // }
+
+        dropListItem.innerHTML = Object.values(newCategoryArray);
+        
+        dropMenu.appendChild(dropListItem);
+    })
 }
 
 const openModalButton = document.querySelector('.add-expenses-button'),
@@ -50,6 +80,7 @@ const openModalButton = document.querySelector('.add-expenses-button'),
 
 function openModal(){
     modal.classList.add('show');
+    
 }
 
 function removeModal(){
@@ -72,14 +103,12 @@ function userExpenses(){
             alert('Введите данные');
         }else if(typeof(inputAddComment.value) !== 'string'){
             alert('Значение может быть только строкой');
-        }else if(localStorage.getItem('amount') < inputAddExpenses.value){
+        }else if(localStorage.getItem('amount') < parseInt(inputAddExpenses.value)){
             alert('На вашем балансе не достаточно средств!');
             inputAddComment.value = '';
             inputAddExpenses.value = '';
         }else{
             e.preventDefault();
-            console.log(typeof(inputAddComment.value));
-            console.log(inputAddExpenses.value);
     
             localStorage.setItem('comment', inputAddComment.value);
             localStorage.setItem('amount', parseInt(localStorage.getItem('amount')) - parseInt(inputAddExpenses.value));
@@ -92,6 +121,28 @@ function userExpenses(){
 }
 
 
+const ctx = document.getElementById('myChart');
+
+
+let chart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+      datasets: [{
+        label: '# of Votes',
+        data: [12, 19, 3, 5, 2, 3],
+        borderWidth: 1
+      }]
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      }
+    }
+  });
+
 
 
 
@@ -102,6 +153,7 @@ document.addEventListener('DOMContentLoaded', () => {
     userBalance();
     userExpenses();
     addCategoryExpenses();
+    addCategory();
 
     openModalButton.addEventListener('click', () => {
         openModal();
