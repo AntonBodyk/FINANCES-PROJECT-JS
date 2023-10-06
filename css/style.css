@@ -15,7 +15,7 @@ h1{
 }
 
 .add-deposit-block h2{
-    margin-left: -100px;
+    margin-left: 160px;
     color: blueviolet;
 }
 
@@ -199,4 +199,9 @@ h1{
 
 .btn-danger{
     box-shadow:0 4px 15px rgba(0,0,0,.2);
+}
+
+.expenses-diagramm h2{
+    text-align: center;
+    color: blueviolet;
 }

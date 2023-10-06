@@ -10,14 +10,17 @@ function upUserBalance(){
             inputValueAmount.value = '';
         }else if(inputValueAmount.value === ''){
             alert('Введите данные');
+        }else if(inputValueAmount.value < 0){
+            alert('Введите значение больше чем 0');
+            inputValueAmount.value = '';
         }else{
             e.preventDefault();
             console.log(inputValueAmount);
                 
             localStorage.setItem('amount', parseInt(localStorage.getItem('amount')) + parseInt(inputValueAmount.value));
     
-            console.log(typeof(localStorage.getItem('amount')));
             inputValueAmount.value = '';
+            location.reload();
         }
     })
 }
@@ -30,21 +33,22 @@ function userBalance(){
 
 const categoryInput = document.getElementById('category-input');
 const categoryButton = document.querySelector('.category-button');
-const dropMenu = document.querySelector('.dropdown-menu');
-const dropButton = document.querySelector('.btn-danger');
 const categoryArray = JSON.parse(localStorage.getItem('categoryArray')) || [];
 
 
 function addCategoryExpenses(){
+
     categoryButton.addEventListener('click', () => {
-        console.log(categoryInput.value);
         
         if(isNaN(categoryInput.value)){
-            categoryArray.push(categoryInput.value);
-            localStorage.setItem('categoryArray', JSON.stringify(categoryArray));
-            
-            console.log(categoryArray);
-            categoryInput.value = '';
+            if(categoryArray.includes(categoryInput.value)){
+                alert('Такая категория уже добавлена!');
+                categoryInput.value = '';
+            }else{
+                categoryArray.push(categoryInput.value);
+                localStorage.setItem('categoryArray', JSON.stringify(categoryArray));
+                categoryInput.value = '';
+            }
         }else if(categoryInput.value === ''){
             alert('Введите данные');
         }else{
@@ -52,25 +56,8 @@ function addCategoryExpenses(){
             categoryInput.value = '';
         }
         
-    })
-}
-
-function addCategory(){
-    const newCategoryArray = JSON.parse(localStorage.getItem('categoryArray'));
-    console.log(typeof(newCategoryArray))
-    dropButton.addEventListener('click', () => {
-
-        const dropListItem = document.createElement('li');
-        dropListItem.classList.add('dropdown-item');
-
-        // for (let i = 0; i < newCategoryArray.length; i++) {
-        //     dropListItem.textContent = newCategoryArray[i];
-        //     console.log(newCategoryArray[i]);
-        // }
-
-        dropListItem.innerHTML = Object.values(newCategoryArray);
         
-        dropMenu.appendChild(dropListItem);
+        
     })
 }
 
@@ -91,14 +78,15 @@ function removeModal(){
 const btnAddSumExpenses = document.querySelector('.btn-sum-expenses');
 const inputAddComment = document.querySelector('.modal__input__comment');
 const inputAddExpenses = document.querySelector('.modal__input__expenses');
-
+const expensesArray = JSON.parse(localStorage.getItem('expensesArray')) || [];
 
 function userExpenses(){
+
     btnAddSumExpenses.addEventListener('click', (e) => {
-    
+        localStorage.setItem('expensesArray', JSON.stringify(expensesArray));
+
         if(isNaN(inputAddExpenses.value)){
             alert('Не правильные данные');
-            inputAddExpenses.style.border = '2px solid red';
         }else if(inputAddExpenses.value === '' || inputAddComment.value === ''){
             alert('Введите данные');
         }else if(typeof(inputAddComment.value) !== 'string'){
@@ -111,11 +99,14 @@ function userExpenses(){
             e.preventDefault();
     
             localStorage.setItem('comment', inputAddComment.value);
+            expensesArray.push(inputAddExpenses.value);
+            localStorage.setItem('expensesArray', JSON.stringify(expensesArray));
             localStorage.setItem('amount', parseInt(localStorage.getItem('amount')) - parseInt(inputAddExpenses.value));
     
             inputAddComment.value = '';
             inputAddExpenses.value = '';
             removeModal();
+            location.reload();
         }
     });
 }
@@ -127,10 +118,10 @@ const ctx = document.getElementById('myChart');
 let chart = new Chart(ctx, {
     type: 'bar',
     data: {
-      labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+      labels: JSON.parse(localStorage.getItem('categoryArray')),
       datasets: [{
-        label: '# of Votes',
-        data: [12, 19, 3, 5, 2, 3],
+        label: 'Сумма затрат',
+        data: JSON.parse(localStorage.getItem('expensesArray')),
         borderWidth: 1
       }]
     },
@@ -146,14 +137,13 @@ let chart = new Chart(ctx, {
 
 
 
-
-
 document.addEventListener('DOMContentLoaded', () => {
     upUserBalance();
     userBalance();
     userExpenses();
     addCategoryExpenses();
-    addCategory();
+
+    
 
     openModalButton.addEventListener('click', () => {
         openModal();

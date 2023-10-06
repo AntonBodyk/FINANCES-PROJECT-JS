@@ -13,11 +13,11 @@
         <h1 class="mb-4">Приложение для учёта личных финансов</h1>
 
         <div class="user-balans mb-3">
-            <h2>Баланс Вашего счета: <span id="general-balance">0</span> гривень</h2>
+            <h2>Баланс Вашего счета: <span id="general-balance">0</span> гривен</h2>
         </div>
 
         <div class="add-deposit-block mt-3">
-            <h2 class="mb-3">Внесите сумму средств для пополнения Вашего счета</h2>
+            <h2 class="mb-3">Пополните баланс</h2>
             <form id="replenishment-form" class="replenishment-form" action="#">
                 <input type="text" id="amount" class="form-control amount mb-4" placeholder="Введите сумму">
                 <button type="submit" class="replenishment-button btn-primary mb-5">Пополнить счет</button>
@@ -25,7 +25,7 @@
         </div>
 
         <div class="add-category">
-            <h2>Добавьте Ваши категории расходов</h2>
+            <h2>Добавьте категорию расходов</h2>
             <form action="#">
                 <input type="text"placeholder="Введите категорию" id="category-input" class="form-control category-input mb-4">
                 <button class="btn-primary category-button mb-3">Добавить</button>
@@ -44,16 +44,6 @@
                             <div class="modal__title">Ваши расходы составляют:</div>
                             <input placeholder="Ваш комментарий" type="text" class="modal__input__comment form-control">
                             <input placeholder="Сумма" type="text" class="modal__input__expenses form-control">
-                            <div class="dropdown">
-                              <button class="btn btn-danger dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                                Выбрать затраты
-                              </button>
-                              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                <!-- <li><a class="dropdown-item" href="#">Action</a></li>
-                                <li><a class="dropdown-item" href="#">Another action</a></li>
-                                <li><a class="dropdown-item" href="#">Something else here</a></li> -->
-                              </ul>
-                            </div>
                             <button type="submit" class="btn-sum-expenses btn_dark btn_min">Добавить cумму расходов</button>
                         </form>
                     </div>
@@ -63,7 +53,7 @@
 
 
         <div class="expenses-diagramm" id="expenses-diagramm">
-          <h2>Диграмма Ваших расходов</h2>
+          <h2>Статистика расходов по категориям</h2>
           <canvas id="myChart"></canvas>
         </div>
     </section>
