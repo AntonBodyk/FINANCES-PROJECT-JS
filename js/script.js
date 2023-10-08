@@ -152,14 +152,11 @@ let chart = new Chart(ctx, {
 
 
 
-
 document.addEventListener('DOMContentLoaded', () => {
     upUserBalance();
     displayBalance();
     userExpenses();
     addCategoryExpenses();
-
-    
 
     openModalButton.addEventListener('click', () => {
         openModal();
