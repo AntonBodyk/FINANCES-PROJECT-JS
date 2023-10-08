@@ -56,8 +56,6 @@ function addCategoryExpenses(){
             categoryInput.value = '';
         }
         
-        
-        
     })
 }
 
@@ -67,11 +65,12 @@ const openModalButton = document.querySelector('.add-expenses-button'),
 
 function openModal(){
     modal.classList.add('show');
-    
+    document.body.style.overflow = 'hidden';
 }
 
 function removeModal(){
     modal.classList.remove('show');
+    document.body.style.overflow = '';
 }
 
 
@@ -83,7 +82,7 @@ const expensesArray = JSON.parse(localStorage.getItem('expensesArray')) || [];
 function userExpenses(){
 
     btnAddSumExpenses.addEventListener('click', (e) => {
-        localStorage.setItem('expensesArray', JSON.stringify(expensesArray));
+        
 
         if(isNaN(inputAddExpenses.value)){
             alert('Не правильные данные');
