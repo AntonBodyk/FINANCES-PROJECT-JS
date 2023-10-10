@@ -9,9 +9,13 @@
     <title>Personal Finance App</title>
 </head>
 <body>
-    <section class="app mt-5">
-        <h1 class="mb-4">Приложение для учёта личных финансов</h1>
 
+    <section class="app mt-5">
+        <div id="changeTitle">
+            <h1 class="mb-4">{{title}}</h1>
+            <button class="change-title btn-primary mb-5" @click="changeTitle()">Сменить название</button>
+        </div>
+        
         <div class="user-balans mb-3">
             <h2>Баланс Вашего счета: <span id="general-balance">0</span> гривен</h2>
         </div>
@@ -56,8 +60,54 @@
           <h2>Статистика расходов по категориям</h2>
           <canvas id="myChart"></canvas>
         </div>
+        
+        
+        <div id="form">
+
+        </div>
+
     </section>
     
+    
+    <script src="https://unpkg.com/vue@next"></script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/vue3-sfc-loader/dist/vue3-sfc-loader.js"></script>
+    <script>
+         const options = {
+        moduleCache: {
+            vue: Vue
+        },
+        async getFile(url) {
+            
+            const res = await fetch(url);
+            if ( !res.ok )
+            throw Object.assign(new Error(res.statusText + ' ' + url), { res });
+            return {
+            getContentData: asBinary => asBinary ? res.arrayBuffer() : res.text(),
+            }
+        },
+        addStyle(textContent) {
+
+            const style = Object.assign(document.createElement('style'), { textContent });
+            const ref = document.head.getElementsByTagName('style')[0] || null;
+            document.head.insertBefore(style, ref);
+        },
+        }
+
+        const { loadModule } = window['vue3-sfc-loader'];
+
+        const form = Vue.createApp({
+        components: {
+            'form-component': Vue.defineAsyncComponent( () => loadModule('./js/FormComponent.vue', options) )
+        },
+        template: '<form-component></form-component>'
+        });
+
+        form.mount('#form');
+    </script>
+    <script src="js/main.js" type="module">
+    </script>
+    <script src="js/secondMain.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
     <script src="js/script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" 

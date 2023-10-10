@@ -1,10 +1,19 @@
 
 h1{
    text-align: center; 
-   /* color: blueviolet; */
    color: #20c997;
 }
 
+.change-title{
+    margin-left: 46%;
+    width: 130px;
+    height: 45px;
+    border-radius: 10px;
+    color: aliceblue;
+    border: none;
+    cursor: pointer;
+    box-shadow:0 4px 15px rgba(0,0,0,.2);
+}
 .user-balans h2{
     text-align: center;
     color: blueviolet;
