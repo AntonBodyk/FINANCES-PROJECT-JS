@@ -1,22 +1,3 @@
-<!-- import FormInput from "./FormInput";
-
-export default {
-  components: {
-    FormInput
-  },
-  setup() {
-    
-    return 1
-  },
-  template: `
-    <form action="#">
-        <input v-model="message" placeholder="Напишите отзыв" />
-        <p>Сообщение: {{ message }}</p>
-        <form-input/>
-    </form>`
-    
-} -->
-
 <template>
   <div>
     <form action="#" @submit.prevent>
@@ -25,6 +6,7 @@ export default {
       <button @click="addMessage()" class="add-message btn-primary mb-5">Добавить</button>
       
     </form>
+    <h3>Ваши коментарии:</h3>
     <ol>
       <li v-for="message of messages" :key="message.id">
         <div>
@@ -38,6 +20,7 @@ export default {
 
 <script>
 import FormInput from './FormInput.vue';
+
 export default {
   components:{
     FormInput

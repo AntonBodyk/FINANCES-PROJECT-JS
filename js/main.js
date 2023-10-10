@@ -1,5 +1,4 @@
-
-export const App = {
+const App = {
     
     data(){
         return {
@@ -15,3 +14,10 @@ export const App = {
 
 const app = Vue.createApp(App);
 app.mount('#changeTitle');
+
+const secondVueObj = {
+    
+}
+
+const secondObj = Vue.createApp(secondVueObj);
+secondObj.mount('#counter');

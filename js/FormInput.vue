@@ -1,15 +1,7 @@
-<!-- export default {
-    setup() {
-      
-      return 1
-    },
-    template: `
-    <input placeholder="Ваш комментарий" type="text" class="modal__input__comment form-control">
-    `
-} -->
-
-<template>
+ <!-- <template>
+  <div>
     <input placeholder="Новый инпут формы" type="text" class="modal__input__comment form-control">
+  </div>
 </template>
 
 <script>
@@ -18,4 +10,11 @@
 
 <style>
 
-</style>
+</style>  -->
+
+
+<script setup>
+import { store } from './store.js'
+</script>
+
+<template>From A: {{ store.count }}</template>
