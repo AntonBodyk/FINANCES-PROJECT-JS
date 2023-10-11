@@ -1,3 +1,7 @@
+export const store = Vue.reactive({
+    count: 0
+  })
+
 const App = {
     
     data(){
@@ -15,9 +19,3 @@ const App = {
 const app = Vue.createApp(App);
 app.mount('#changeTitle');
 
-const secondVueObj = {
-    
-}
-
-const secondObj = Vue.createApp(secondVueObj);
-secondObj.mount('#counter');
