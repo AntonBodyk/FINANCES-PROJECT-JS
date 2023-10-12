@@ -2,7 +2,7 @@
   <div>
     <form action="#" @submit.prevent>
       <input v-model="message" placeholder="Напишите отзыв" class="input-review form-control"/>
-      <form-input></form-input>
+      <form-input :messages="messages"></form-input>
       <button @click="addMessage()" class="add-message btn-primary mb-5">Добавить</button>
       
     </form>
@@ -35,15 +35,30 @@ export default {
       if(this.message !== '' && Array.isArray(this.messages)){
         this.messages.push(this.message);
         this.message = '';
+        
       }else{
         alert('Введите данные');
       }
-    }
+    },
+    // onInput(inputValue){
+    //   if(inputValue !== ''){
+    //     console.log(inputValue);
+    //   }else{
+    //     alert('Введите данные');
+    //   }
+    // }
   }
 }
 </script>
 
 <style>
+  h3{
+    text-align: center;
+  }
+
+  ol{
+    margin-left: 41%;
+  }
   .input-review{
     font-style: italic;
     display:block;

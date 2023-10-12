@@ -5,6 +5,14 @@ const secondVueObj = {
         return{
             store: store.count
         }
+    },
+    methods: {
+        plus() {
+            this.store += 1;
+        },
+        minus() {
+            this.store -= 1;
+        }
     }
 }
 

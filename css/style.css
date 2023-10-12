@@ -14,6 +14,35 @@ h1{
     cursor: pointer;
     box-shadow:0 4px 15px rgba(0,0,0,.2);
 }
+.user-hello{
+    margin-left: 50%;
+}
+
+.user-hello h2{
+    color: red;
+    margin-left: -75px;
+}
+.bye-button{
+    width: 130px;
+    height: 45px;
+    border-radius: 10px;
+    color: aliceblue;
+    margin-left: -120px;
+    border: none;
+    cursor: pointer;
+    box-shadow:0 4px 15px rgba(0,0,0,.2);
+}
+
+.hello-button{
+    width: 130px;
+    height: 45px;
+    border-radius: 10px;
+    color: aliceblue;
+    border: none;
+    cursor: pointer;
+    box-shadow:0 4px 15px rgba(0,0,0,.2);
+}
+
 .user-balans h2{
     text-align: center;
     color: blueviolet;
@@ -228,4 +257,27 @@ h1{
 .expenses-diagramm h2{
     text-align: center;
     color: blueviolet;
+}
+
+.counter{
+    margin-left: 50%;
+    font-size: 30px;
+}
+
+.counter h2{
+    margin-left: -115px;
+}
+
+.counter-buttons{
+    margin-left: -57px;
+}
+.counter-plus{
+    width: 50px;
+    height: 50px;
+}
+
+.counter-minus{
+    width: 50px;
+    height: 50px;
+    margin-left: 30px;
 }
